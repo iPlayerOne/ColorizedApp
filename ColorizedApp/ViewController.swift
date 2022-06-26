@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     @IBAction func slidersAction () {
         
         roundLabels()
-        viewBackgorundColor()
+        viewColorChanger()
         
         
     }
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         label.text = String(format: "%.2f", slider.value)
     }
     
-    private func viewBackgorundColor() {
+    private func viewColorChanger() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
