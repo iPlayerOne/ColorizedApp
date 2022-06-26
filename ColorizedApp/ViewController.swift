@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         
         colorView.layer.cornerRadius = 10
         
-        setupSliders()
+        getDefaultValue()
         slidersAction()
         
     }
@@ -38,40 +38,29 @@ class ViewController: UIViewController {
         roundLabels()
         viewColorChanger()
         
-        
     }
     
     
     // MARK: private methods
     
-    private func setupSliders () {
+    private func getDefaultValue() {
         
+        //getting view color data for correct default slider position
         
-        redSlider.minimumTrackTintColor = UIColor(named: "lightRed")
-        redSlider.maximumTrackTintColor = UIColor(named: "darkRed")
-        redSlider.thumbTintColor = UIColor(named: "lightRed")
         redSlider.value = Float(colorView.backgroundColor?.getColorValue().red ?? 0.25)
-        
-        greenSlider.minimumTrackTintColor = UIColor(named: "lightGreen")
-        greenSlider.maximumTrackTintColor = UIColor(named: "darkGreen")
-        greenSlider.thumbTintColor = UIColor(named: "lightGreen")
         greenSlider.value = Float(colorView.backgroundColor?.getColorValue().green ?? 0.25)
-        
-        blueSlider.minimumTrackTintColor = UIColor(named: "lightBlue")
-        blueSlider.maximumTrackTintColor = UIColor(named: "darkBlue")
-        blueSlider.thumbTintColor = UIColor(named: "lightBlue")
         blueSlider.value = Float(colorView.backgroundColor?.getColorValue().blue ?? 0.25)
         
     }
     
-    private func roundLabels () {
+    private func roundLabels() {
         
         getRoundedValue(label: redValue, slider: redSlider)
         getRoundedValue(label: greenValue, slider: greenSlider)
         getRoundedValue(label: blueValue, slider: blueSlider)
     }
     
-    private func getRoundedValue (label: UILabel, slider: UISlider ) {
+    private func getRoundedValue(label: UILabel, slider: UISlider ) {
         
         label.text = String(format: "%.2f", slider.value)
     }
