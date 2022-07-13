@@ -34,7 +34,7 @@ class SettingsViewController: UIViewController {
         greenField.delegate = self
         blueField.delegate = self
         getBackgroudColor()
-        setValues()
+        //setValues()
     }
     
     @IBAction func doneButtonPressed() {
@@ -47,14 +47,17 @@ class SettingsViewController: UIViewController {
         textFieldDidEndEditing(redField, greenField, blueField )
     }
     @IBAction func slidersAction(_ sender: UISlider) {
-        setValues()
+        //setValues()
         changeColor()
         switch sender {
             case redSlider:
+                redLabel.text = round(from: redSlider)
                 redField.text = round(from: redSlider)
             case greenSlider:
+                greenLabel.text = round(from: greenSlider)
                 greenField.text = round(from: greenSlider)
             default:
+                blueLabel.text = round(from: blueSlider)
                 blueField.text = round(from: blueSlider)
         }
         
@@ -131,11 +134,16 @@ extension SettingsViewController: UITextFieldDelegate {
             switch textField.tag {
                 case 0:
                     redSlider.value = numberValue
+                    redLabel.text = String(numberValue)
+                    changeColor()
                 case 1:
                     greenSlider.value = numberValue
+                    greenLabel.text = String(numberValue)
+                    changeColor()
                 default:
                     blueSlider.value = numberValue
-                    
+                    blueLabel.text = String(numberValue)
+                    changeColor()
             }
         }
     }
