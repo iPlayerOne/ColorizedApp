@@ -34,7 +34,7 @@ class SettingsViewController: UIViewController {
         greenField.delegate = self
         blueField.delegate = self
         getBackgroudColor()
-        //setValues()
+        setValues()
     }
     
     @IBAction func doneButtonPressed() {
@@ -111,15 +111,12 @@ extension UIColor {
 
 extension SettingsViewController: UITextFieldDelegate {
     //Иду по приборам 🥹
-//    internal func textField(_ textField: UITextField..., shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        for textField in textField {
-//
-//    }
+
     private func addDoneButton(textField: UITextField...) {
         for textField in textField {
             let keypadToolbar: UIToolbar = UIToolbar()
             keypadToolbar.items = [
-                UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: textField, action: nil),
+                UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: textField, action: #selector(UITextField.resignFirstResponder)),
                 UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
             ]
             keypadToolbar.sizeToFit()
